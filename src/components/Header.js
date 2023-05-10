@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './css/Header.css'
-// import logo from '../Images/logo.png'
+import logo from '../logo.svg'
 import { useNavigate } from 'react-router-dom';
 const Header = ({ user, setUser }) => {
     const navigate = useNavigate();
@@ -21,7 +21,8 @@ const Header = ({ user, setUser }) => {
     // }, []);
     return (
         <div className='headerPage'>
-            {
+
+                <img className='headerTextLeft' src={logo} alt="logo" width={30} height={30} />                {
                 (user !== null) &&
                 <button className='headerTextRight' onClick={logout}>
                     Logout
