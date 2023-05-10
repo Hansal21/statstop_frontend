@@ -5,19 +5,43 @@ const getGames = async () =>{
     return response.data
 }
 const getTeamsAdmin = async () =>{
-    const response = await axios.get(`http://localhost:8085/cricket/get-teams`)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.get(`http://localhost:8085/cricket/get-teams`,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 const addTeam = async (newTeam) =>{
-    const response = await axios.post(`http://localhost:8085/cricket/add-team`,newTeam)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.post(`http://localhost:8085/cricket/add-team`,newTeam,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 const addGame = async (newGame) =>{
-    const response = await axios.post(`http://localhost:8085/cricket/add-game`,newGame)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.post(`http://localhost:8085/cricket/add-game`,newGame,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 const updateGame = async (updateGame) =>{
-    const response = await axios.post(`http://localhost:8085/cricket/update`,updateGame)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.post(`http://localhost:8085/cricket/update`,updateGame,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 

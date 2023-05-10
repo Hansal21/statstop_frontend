@@ -5,19 +5,43 @@ const getGames = async () =>{
     return response.data
 }
 const getTeamsAdmin = async () =>{
-    const response = await axios.get(`http://localhost:8085/basketball/get-teams`)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.get(`http://localhost:8085/basketball/get-teams`,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 const addTeam = async (newTeam) =>{
-    const response = await axios.post(`http://localhost:8085/basketball/add-team`,newTeam)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.post(`http://localhost:8085/basketball/add-team`,newTeam,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 const addGame = async (newGame) =>{
-    const response = await axios.post(`http://localhost:8085/basketball/add-game`,newGame)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.post(`http://localhost:8085/basketball/add-game`,newGame,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 const updateGame = async (gameId,teamId,points) =>{
-    const response = await axios.post(`http://localhost:8085/basketball/update?gameId=${gameId}&teamId=${teamId}&points=${points}`,updateGame)
+    let token = window.localStorage.getItem('BearerToken')
+    token=token.substring(1,token.length-1);
+    const response = await axios.post(`http://localhost:8085/basketball/update?gameId=${gameId}&teamId=${teamId}&points=${points}`,updateGame,{
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+           })
     return response.data
 }
 
